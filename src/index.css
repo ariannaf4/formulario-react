@@ -5,7 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(270deg, #a18cd1, #fbc2eb, #1976D2, #ea33b6);
+  background-size: 800% 800%;
+  animation: fondoColorAnimado 15s ease-in-out infinite;
 }
+
+@keyframes fondoColorAnimado {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Elimina líneas inválidas dentro de los keyframes. El gradiente solo va en body, no en los keyframes. */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

@@ -1,0 +1,494 @@
+
+/* ========================================
+   MATERIAL DESIGN - FORMULARIO REGISTRO
+   ======================================== */
+
+:root {
+    --primary-color: #1976D2;
+    --primary-dark: #1565C0;
+    --secondary-color: #03DAC6;
+    --error-color: #F44336;
+    --success-color: #4CAF50;
+    --warning-color: #FF9800;
+    --surface-color: #FFFFFF;
+    --background-color: #FAFAFA;
+    --on-surface: #212121;
+    --on-surface-variant: #757575;
+    --outline: #E0E0E0;
+    --shadow-1: 0 2px 8px rgba(25, 118, 210, 0.08), 0 1.5px 3px rgba(0,0,0,0.08);
+    --shadow-2: 0 6px 24px rgba(25, 118, 210, 0.12), 0 3px 6px rgba(0,0,0,0.10);
+    --shadow-3: 0 16px 40px rgba(25, 118, 210, 0.16), 0 6px 12px rgba(0,0,0,0.12);
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--on-surface);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+.container {
+    background: var(--surface-color);
+    border-radius: 24px;
+    box-shadow: var(--shadow-3);
+    width: 100%;
+    max-width: 420px;
+    padding: 0;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.icon-container {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1rem;
+}
+
+.icon-container i, .icon-container .material-icons {
+    font-size: 3.5rem;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    padding: 1rem;
+    box-shadow: var(--shadow-2);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    position: relative;
+    z-index: 1;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+form {
+    padding: 2rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--on-surface-variant);
+    font-size: 1.2rem;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border: 1px solid var(--outline);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+input:focus + label {
+    color: var(--primary-color);
+    transform: translateY(-50px) scale(0.8);
+}
+
+label {
+    position: absolute;
+    left: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--on-surface-variant);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--surface-color);
+    padding: 0 4px;
+    z-index: 1;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label,
+input:valid + label {
+    transform: translateY(-50px) scale(0.8);
+    color: var(--primary-color);
+}
+
+.input-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus ~ .input-line {
+    transform: scaleX(1);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--on-surface-variant);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.toggle-password:hover {
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--primary-color);
+}
+
+.password-strength {
+    margin-top: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 100%;
+}
+
+.password-strength.active {
+    opacity: 1;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--outline);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--error-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.strength-fill.weak {
+    width: 25%;
+    background: var(--error-color);
+}
+
+.strength-fill.medium {
+    width: 60%;
+    background: var(--warning-color);
+}
+
+.strength-fill.strong {
+    width: 100%;
+    background: var(--success-color);
+}
+
+.strength-text {
+    font-size: 0.8rem;
+    color: var(--on-surface-variant);
+    margin-left: 4px;
+}
+
+.material-button {
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+    box-shadow: var(--shadow-1);
+}
+
+.material-button:hover {
+    background: var(--primary-dark);
+    box-shadow: var(--shadow-2);
+    transform: translateY(-2px);
+}
+
+.material-button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-1);
+}
+
+.button-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.material-button:hover .button-icon {
+    transform: translateX(4px);
+}
+
+.button-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.terms-text {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--on-surface-variant);
+    margin-top: 1.5rem;
+    line-height: 1.4;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin: 0 2px;
+    padding: 0;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 2rem ;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--outline);
+}
+
+.divider span {
+    padding: 0 1rem;
+    color: var(--on-surface-variant);
+    font-size: 0.9rem;
+    background: var(--surface-color);
+}
+
+.social-buttons {
+    padding: 0 2rem 2rem;
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    flex: 1;
+    background: var(--background-color);
+    border: 1px solid var(--outline);
+    border-radius: 12px;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.social-btn:hover {
+    background: var(--surface-color);
+    box-shadow: var(--shadow-1);
+    transform: translateY(-1px);
+}
+
+.google-btn:hover {
+    border-color: #4285F4;
+    color: #4285F4;
+}
+
+.facebook-btn:hover {
+    border-color: #1877F2;
+    color: #1877F2;
+}
+
+/* Estados de error */
+.input-container.error input {
+    border-color: var(--error-color);
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
+}
+.input-container.error .input-icon {
+    color: var(--error-color);
+}
+.input-container.error label {
+    color: var(--error-color);
+}
+.input-container.error .input-line {
+    background: var(--error-color);
+    transform: scaleX(1);
+}
+
+/* Estados de éxito */
+.input-container.success input {
+    border-color: var(--success-color);
+}
+.input-container.success .input-icon {
+    color: var(--success-color);
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 0.5rem;
+        max-width: 100%;
+        border-radius: 16px;
+    }
+    .header {
+        padding: 1.5rem 1rem 1rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    form {
+        padding: 1.5rem;
+    }
+    .social-buttons {
+        padding: 0 1.5rem 1.5rem;
+        flex-direction: column;
+    }
+    .divider {
+        margin: 1rem 1.5rem;
+    }
+}
+
+/* Animaciones adicionales */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.input-group {
+    animation: fadeInUp 0.6s ease;
+    animation-fill-mode: both;
+}
+
+.input-group:nth-child(1) { animation-delay: 0.1s; }
+.input-group:nth-child(2) { animation-delay: 0.2s; }
+.input-group:nth-child(3) { animation-delay: 0.3s; }
+.material-button { animation-delay: 0.4s; }
+.terms-text { animation-delay: 0.5s; }
+.social-buttons { animation-delay: 0.6s; }
