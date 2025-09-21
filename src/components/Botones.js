@@ -37,8 +37,7 @@ const Botones = () => {
     <>
       <button type="submit" className="material-button">
         <span className="button-text">Crear Cuenta</span>
-        <span className="material-icons button-icon">arrow_forward</span>
-        <span className="button-ripple"></span>
+        <span className="button-icon">➡️</span>
       </button>
       <p className="terms-text">
         Al registrarte, aceptas nuestros
@@ -56,7 +55,7 @@ const Botones = () => {
       {showSocialToast && (
         <div className={`toast toast-${showSocialToast.type}`}
           style={{ position: 'fixed', bottom: 80, left: '50%', transform: 'translateX(-50%)', zIndex: 10000, background: '#1976D2', color: 'white', padding: '12px 24px', borderRadius: '8px', fontSize: '0.95rem', display: 'block' }}>
-          <span className="material-icons" style={{ marginRight: '8px' }}>info</span>
+          <span style={{ marginRight: '8px' }}>ℹ️</span>
           <span>{showSocialToast.message}</span>
         </div>
       )}
