@@ -35,9 +35,11 @@ const Botones = () => {
   }, [showSocialToast]);
   return (
     <>
-      <button type="submit" className="material-button">
+      <button type="submit" className="material-button btn">
         <span className="button-text">Crear Cuenta</span>
-        <span className="button-icon">➡️</span>
+        <svg className="button-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M15,14C12.33,14 7,15.33 7,18V20H23V18C23,15.33 17.67,14 15,14M6,10V7H4V10H1V12H4V15H6V12H9V10M15,12A4,4 0 0,0 19,8A4,4 0 0,0 15,4A4,4 0 0,0 11,8A4,4 0 0,0 15,12Z"/>
+        </svg>
       </button>
       <p className="terms-text">
         Al registrarte, aceptas nuestros
@@ -55,7 +57,7 @@ const Botones = () => {
       {showSocialToast && (
         <div className={`toast toast-${showSocialToast.type}`}
           style={{ position: 'fixed', bottom: 80, left: '50%', transform: 'translateX(-50%)', zIndex: 10000, background: '#1976D2', color: 'white', padding: '12px 24px', borderRadius: '8px', fontSize: '0.95rem', display: 'block' }}>
-          <span style={{ marginRight: '8px' }}>ℹ️</span>
+          <span style={{ marginRight: '8px' }}>i</span>
           <span>{showSocialToast.message}</span>
         </div>
       )}

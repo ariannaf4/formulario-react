@@ -22,7 +22,6 @@ const calcularFuerza = (password) => {
 };
 
 const ContrasenaInput = ({ contrasena, setContrasena, errorContrasena, setErrorContrasena }) => {
-  // Usar el error y setter del padre si existen
   const [localError, setLocalError] = React.useState('');
   const [touched, setTouched] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
@@ -59,6 +58,7 @@ const ContrasenaInput = ({ contrasena, setContrasena, errorContrasena, setErrorC
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder=" "
+          className="form-control"
         />
         <label htmlFor="contrasena">Contraseña</label>
         <div className="input-line"></div>

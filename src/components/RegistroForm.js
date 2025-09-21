@@ -4,7 +4,6 @@ import ContrasenaInput from './ContrasenaInput';
 import Botones from './Botones';
 
 const RegistroForm = () => {
-  // Estados locales
   const [nombre, setNombre] = useState('');
   const [correo, setCorreo] = useState('');
   const [contrasena, setContrasena] = useState('');
@@ -15,12 +14,6 @@ const RegistroForm = () => {
   const [passwordStrength, setPasswordStrength] = useState({ score: 0, feedback: 'Mínimo 8 caracteres' });
   const [showToast, setShowToast] = useState(null);
   const [touchedNombre, setTouchedNombre] = useState(false);
-  // Toast local
-  // (ya definido arriba)
-  // Usar los errores y setters del padre
-  // (ya definido arriba)
-  // Recibir los errores y setters del padre
-  // (comentado, ya no se usa)
 
   const validarNombre = (value) => {
     if (!value.trim()) return 'El nombre es obligatorio';
@@ -38,17 +31,13 @@ const RegistroForm = () => {
     setErrorNombre(validarNombre(nombre));
   };
 
-  // Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validación final
     if (!errorNombre && !errorCorreo && !errorContrasena && nombre && correo && contrasena) {
       setShowToast({ type: 'success', message: '¡Registro exitoso! Bienvenido a nuestra comunidad.' });
-      // Limpiar campos después de mostrar el toast
     }
   };
 
-  // Toast timeout y limpieza de campos
   useEffect(() => {
     if (showToast && showToast.type === 'success') {
       const timer = setTimeout(() => {
@@ -82,6 +71,7 @@ const RegistroForm = () => {
             onChange={handleChangeNombre}
             onBlur={handleBlurNombre}
             placeholder=" "
+            className="form-control"
           />
           <label htmlFor="nombre">Nombre completo</label>
           <div className="input-line"></div>
@@ -92,7 +82,6 @@ const RegistroForm = () => {
   <ContrasenaInput contrasena={contrasena} setContrasena={setContrasena} errorContrasena={errorContrasena} setErrorContrasena={setErrorContrasena} passwordStrength={passwordStrength} setPasswordStrength={setPasswordStrength} showPassword={showPassword} setShowPassword={setShowPassword} />
       <Botones />
     </form>
-    {/* Toast */}
     {showToast && (
       <div className={`toast toast-${showToast.type}`}
         style={{ position: 'fixed', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 10000, background: '#1976D2', color: 'white', padding: '16px 32px', borderRadius: '8px', fontSize: '1rem', display: 'block' }}>

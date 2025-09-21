@@ -21,7 +21,6 @@ body {
     background-position: 0% 50%;
   }
 }
-/* Elimina líneas inválidas dentro de los keyframes. El gradiente solo va en body, no en los keyframes. */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

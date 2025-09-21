@@ -7,7 +7,6 @@ const validarCorreo = (value) => {
 };
 
 const CorreoInput = ({ correo, setCorreo, errorCorreo, setErrorCorreo }) => {
-  // Usar el error y setter del padre si existen
   const [localError, setLocalError] = React.useState('');
   const [touched, setTouched] = React.useState(false);
 
@@ -41,6 +40,7 @@ const CorreoInput = ({ correo, setCorreo, errorCorreo, setErrorCorreo }) => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder=" "
+          className="form-control"
         />
         <label htmlFor="correo">Correo electrónico</label>
         <div className="input-line"></div>

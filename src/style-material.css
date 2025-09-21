@@ -1,8 +1,4 @@
 
-/* ========================================
-   MATERIAL DESIGN - FORMULARIO REGISTRO
-   ======================================== */
-
 :root {
     --primary-color: #1976D2;
     --primary-dark: #1565C0;
@@ -226,8 +222,15 @@ input:focus ~ .input-line {
     color: var(--on-surface-variant);
     cursor: pointer;
     font-size: 1.2rem;
-    padding: 5px;
+    padding: 8px;
+    border: none;
     border-radius: 50%;
+    background: transparent;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
     user-select: none;
 }
@@ -423,7 +426,6 @@ input:focus ~ .input-line {
     color: #1877F2;
 }
 
-/* Estados de error */
 .input-container.error input {
     border-color: var(--error-color);
     box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
@@ -439,7 +441,6 @@ input:focus ~ .input-line {
     transform: scaleX(1);
 }
 
-/* Estados de éxito */
 .input-container.success input {
     border-color: var(--success-color);
 }
@@ -471,7 +472,6 @@ input:focus ~ .input-line {
     }
 }
 
-/* Animaciones adicionales */
 @keyframes fadeInUp {
     from {
         opacity: 0;

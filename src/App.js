@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div className="background-gradient"></div>
-      <div className="container">
+      <div className="container container-fluid">
         <div className="header">
           <div className="icon-container">
             <svg width="48" height="48" viewBox="0 0 24 24">
